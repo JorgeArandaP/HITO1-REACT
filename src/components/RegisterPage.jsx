@@ -14,6 +14,20 @@ const RegisterPage = () => {
       alert("Todos los campos son obligatorios");
       return;
     }
+
+    if (password.trim().length < 6) {
+      alert("Password debe contener mas de 6 caracteres");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords no coinciden");
+      return;
+    }
+    alert("Registro exitoso!");
+    setEmail("");
+    setConfirmPassword("");
+    setPassword("");
   };
 
   return (
@@ -53,9 +67,6 @@ const RegisterPage = () => {
             }}
             value={confirmPassword}
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
