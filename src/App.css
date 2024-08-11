@@ -1,3 +1,9 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
 .header {
   background-image: url("./assets/images/Header.jpg");
   background-size: cover;
@@ -5,7 +11,7 @@
   background-repeat: no-repeat;
   color: white;
   width: 100vmax;
-  height: 400px;
+  height: 30vh;
 }
 
 .divider {
@@ -14,7 +20,19 @@
   width: 80%;
 }
 
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .navbar,
 .footer {
   background-color: rgb(22, 21, 21);
+  height: 6vh;
+}
+
+.home {
+  height: 88vh;
+  overflow-y: auto;
 }

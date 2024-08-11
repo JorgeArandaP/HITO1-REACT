@@ -4,13 +4,17 @@ import Navbar from "./components/Navbar";
 
 import "./App.css";
 import Footer from "./components/Footer";
+import RegisterPage from "./components/RegisterPage";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
-      <Footer />
+      <div className="contenedor">
+        <Navbar />
+        {/* <Home /> */}
+        <RegisterPage />
+        <Footer />
+      </div>
     </>
   );
 }
