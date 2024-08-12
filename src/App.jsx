@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Footer from "./components/Footer";
 import RegisterPage from "./components/RegisterPage";
+import LoginPage from "./components/LoginPage";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <div className="contenedor">
         <Navbar />
         {/* <Home /> */}
-        <RegisterPage />
+        {/* <RegisterPage /> */}
+        <LoginPage />
         <Footer />
       </div>
     </>

@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <div className="home">
         <Header />
-        <div className="m-5 p-4 d-flex justify-content-around">
+        <div className="m-4 p-4 d-flex justify-content-around">
           <CardPizza
             name="Napolitana"
             price={5950}
