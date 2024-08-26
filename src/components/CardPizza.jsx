@@ -1,28 +1,37 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ name, price, ingredients, img, desc }) => {
   return (
-    <Card style={{ width: "25rem" }}>
+    <Card className="card">
       <Card.Img variant="top" src={img} />
       <Card.Body>
-        <Card.Title className="fs-4 text-body">Pizza {name}</Card.Title>
+        <Card.Title className="fs-4 text-body text-center">
+          {name.charAt(0).toUpperCase() + name.slice(1)}
+        </Card.Title>
         <hr></hr>
+        <Card.Text className="fs-6 text-center text-secondary">
+          {desc}
+        </Card.Text>
         <Card.Text className="fs-5 text-center text-secondary">
           Ingredientes:
         </Card.Text>
         <Card.Text className="fs-6 text-center text-secondary">
-          🍕 {ingredients.join(", ")}
+          <ul>
+            {ingredients.map((ingrediente) => (
+              <li>🍕 {ingrediente}</li>
+            ))}
+          </ul>
         </Card.Text>
         <hr></hr>
         <Card.Text className="fs-4 text-center">
           Precio: ${price.toLocaleString("de-DE")}
         </Card.Text>
         <div className="d-flex justify-content-around">
-          <Button variant="outline-dark" size="sm">
+          <Button variant="outline-dark" size="sl">
             Ver más 👀
           </Button>
-          <Button variant="dark" size="sm">
+          <Button variant="dark" size="sl">
             Añadir 🛒
           </Button>
         </div>

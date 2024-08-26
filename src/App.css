@@ -5,6 +5,10 @@ html {
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .header {
   background-image: url("./assets/images/Header.jpg");
   background-size: cover;
@@ -13,6 +17,23 @@ html {
   color: white;
 
   height: 30vh;
+}
+
+.card {
+  width: 20rem;
+  height: 52rem;
+  margin-bottom: 20px;
+}
+
+.pizzas {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  gap: 20px;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  padding: 20px;
 }
 
 .divider {
@@ -30,8 +51,7 @@ html {
 
 .navbar,
 .footer {
-  background-color: rgb(22, 21, 21);
-  height: 6vh;
+  height: fit-content;
 }
 
 .home {
@@ -49,4 +69,30 @@ html {
 .formulario {
   margin-right: 8%;
   background-color: rgb(48, 48, 47);
+}
+
+.imagenCart {
+  width: 100px;
+  height: auto;
+}
+
+.cart {
+  width: 50rem;
+}
+
+td {
+  white-space: nowrap;
+}
+@media (min-width: 576px) {
+  .pizzas {
+    /* height: 65vh; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 25rem;
+    margin-inline: 20px;
+  }
 }
