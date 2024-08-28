@@ -56,7 +56,11 @@ const Pizza = () => {
           </Card>
         </div>
       ) : (
-        <p>Loading...</p>
+        <div class="d-flex justify-content-center home align-items-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       )}
     </div>
   );
