@@ -14,7 +14,7 @@ const NotFound = () => {
           className="mx-1 my-1 widht-auto fs-4 border"
           variant="outline-warning"
         >
-          <Link to="/" className="text-decoration-none text-dark">
+          <Link to="/PIZZERIA" className="text-decoration-none text-dark">
             Volver al Inicio 🍕
           </Link>
         </Button>{" "}

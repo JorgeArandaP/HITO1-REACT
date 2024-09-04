@@ -7,7 +7,7 @@ const NavbarResponsive = () => {
   return (
     <div className="navbar navbar-expand-lg navbar-dark bg-dark p-2 px-3">
       <div className="container-fluid">
-        <Link className="navbar-brand text-white" to="/">
+        <Link className="navbar-brand text-white" to="/PIZZERIA">
           Pizzeria Mamma Mia!
         </Link>
         <Button
@@ -29,7 +29,10 @@ const NavbarResponsive = () => {
                 className="mx-1 my-1"
                 variant="outline-light"
               >
-                <Link to="/" className="text-decoration-none text-white">
+                <Link
+                  to="/PIZZERIA"
+                  className="text-decoration-none text-white"
+                >
                   🍕 Home
                 </Link>
               </Button>{" "}
@@ -40,7 +43,10 @@ const NavbarResponsive = () => {
                 className={token ? "mx-1 my-1" : "d-none"}
                 variant="outline-light"
               >
-                <Link to="/profile" className="text-decoration-none text-white">
+                <Link
+                  to="/PIZZERIA/profile"
+                  className="text-decoration-none text-white"
+                >
                   🔓 Profile
                 </Link>
               </Button>{" "}
@@ -64,7 +70,10 @@ const NavbarResponsive = () => {
                 className={token ? "d-none" : "mx-1 my-1"}
                 variant="outline-light"
               >
-                <Link to="/login" className="text-decoration-none text-white">
+                <Link
+                  to="/PIZZERIA/login"
+                  className="text-decoration-none text-white"
+                >
                   🔐 Login
                 </Link>
               </Button>{" "}
@@ -77,7 +86,7 @@ const NavbarResponsive = () => {
                 variant="outline-light"
               >
                 <Link
-                  to="/register"
+                  to="/PIZZERIA/register"
                   className="text-decoration-none text-white"
                 >
                   🔐 Register
@@ -86,7 +95,10 @@ const NavbarResponsive = () => {
             </li>
           </ul>
           <Button type="button" className="mx-1" variant="outline-warning">
-            <Link to="/cart" className="text-decoration-none text-warning">
+            <Link
+              to="/PIZZERIA/cart"
+              className="text-decoration-none text-warning"
+            >
               🛒 Total: ${total.toLocaleString("de-DE")}
             </Link>
           </Button>{" "}

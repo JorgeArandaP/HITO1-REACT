@@ -17,13 +17,13 @@ function App() {
       <div className="contenedor">
         <NavbarResponsive />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/pizza/p001" element={<Pizza />} />
-          <Route path="/404" element={<NotFund />} />
+          <Route path="/PIZZERIA" element={<Home />} />
+          <Route path="/PIZZERIA/profile" element={<Profile />} />
+          <Route path="/PIZZERIA/register" element={<RegisterPage />} />
+          <Route path="/PIZZERIA/cart" element={<Cart />} />
+          <Route path="/PIZZERIA/login" element={<LoginPage />} />
+          <Route path="/PIZZERIA/pizza/p001" element={<Pizza />} />
+          <Route path="/PIZZERIA/404" element={<NotFund />} />
         </Routes>
         <Footer />
       </div>
