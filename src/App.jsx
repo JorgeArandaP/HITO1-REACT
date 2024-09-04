@@ -1,23 +1,30 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Home from "./components/Home";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import RegisterPage from "./pages/RegisterPage";
+import Cart from "./pages/Cart";
+import LoginPage from "./pages/LoginPage";
+import NotFund from "./pages/NotFund";
 import NavbarResponsive from "./components/NavbarResponsive";
+import Pizza from "./pages/Pizza";
 import "./App.css";
 import Footer from "./components/Footer";
-import Pizza from "./components/Pizza";
-// import RegisterPage from "./components/RegisterPage";
-// import LoginPage from "./components/LoginPage";
-// import Cart from "./components/Cart";
 
 function App() {
   return (
     <>
       <div className="contenedor">
         <NavbarResponsive />
-        {/* <Home /> */}
-        <Pizza />
-        {/* <Cart /> */}
-        {/* <RegisterPage /> */}
-        {/* <LoginPage /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/pizza/p001" element={<Pizza />} />
+          <Route path="/404" element={<NotFund />} />
+        </Routes>
         <Footer />
       </div>
     </>

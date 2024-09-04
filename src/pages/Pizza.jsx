@@ -9,7 +9,7 @@ const Pizza = () => {
   }, []);
 
   const consultarApi = async () => {
-    const url = "http://localhost:5000/api/pizzas/p002/";
+    const url = "http://localhost:5000/api/pizzas/p001/";
     const response = await fetch(url);
     const data = await response.json();
     setInfo(data);
