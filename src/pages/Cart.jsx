@@ -1,34 +1,11 @@
 import { Button } from "react-bootstrap";
-import { pizzas } from "../pizzas";
-import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
 
 const Cart = () => {
-  const carroInicial = pizzas.map((pizza) => ({ ...pizza, quantity: 0 }));
-  const [carro, setCarro] = useState(carroInicial);
-  const Agregar = (pizzaId) => {
-    setCarro(
-      carro.map((pizza) =>
-        pizza.id === pizzaId
-          ? { ...pizza, quantity: pizza.quantity + 1 }
-          : pizza
-      )
-    );
-  };
+  const { total, carro, Quitar, Agregar, Actualizar } = useContext(CartContext);
+  Actualizar(carro);
 
-  const Quitar = (pizzaId) => {
-    setCarro(
-      carro.map((pizza) =>
-        pizza.id === pizzaId && pizza.quantity > 0
-          ? { ...pizza, quantity: pizza.quantity - 1 }
-          : pizza
-      )
-    );
-  };
-
-  const Total = carro.reduce(
-    (acc, pizza) => acc + pizza.price * pizza.quantity,
-    0
-  );
   return (
     <>
       <div className="home d-flex justify-content-center align-items-center">
@@ -68,7 +45,7 @@ const Cart = () => {
               ))}
               <tr>
                 <td className="text-center">
-                  <strong>Total: ${Total.toLocaleString("de-DE")}</strong>
+                  <strong>Total: ${total.toLocaleString("de-DE")}</strong>
                 </td>
                 <td className="text-center"></td>
               </tr>

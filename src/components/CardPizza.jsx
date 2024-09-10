@@ -1,7 +1,12 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
 
-const CardPizza = ({ name, price, ingredients, img, desc }) => {
+const CardPizza = ({ name, price, ingredients, img, desc, id }) => {
+  const { Agregar, Actualizar, carro } = useContext(CartContext);
+  Actualizar(carro);
+
   return (
     <Card className="card">
       <Card.Img variant="top" src={img} />
@@ -31,7 +36,7 @@ const CardPizza = ({ name, price, ingredients, img, desc }) => {
           <Button variant="outline-dark" size="sl">
             Ver más 👀
           </Button>
-          <Button variant="dark" size="sl">
+          <Button variant="dark" size="sl" onClick={() => Agregar(id)}>
             Añadir 🛒
           </Button>
         </div>

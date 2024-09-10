@@ -10,22 +10,25 @@ import NavbarResponsive from "./components/NavbarResponsive";
 import Pizza from "./pages/Pizza";
 import "./App.css";
 import Footer from "./components/Footer";
+import CartProvider from "./contexts/CartContext";
 
 function App() {
   return (
     <>
       <div className="contenedor">
-        <NavbarResponsive />
-        <Routes>
-          <Route path="/PIZZERIA" element={<Home />} />
-          <Route path="/PIZZERIA/profile" element={<Profile />} />
-          <Route path="/PIZZERIA/register" element={<RegisterPage />} />
-          <Route path="/PIZZERIA/cart" element={<Cart />} />
-          <Route path="/PIZZERIA/login" element={<LoginPage />} />
-          <Route path="/PIZZERIA/pizza/p001" element={<Pizza />} />
-          <Route path="/PIZZERIA/404" element={<NotFund />} />
-        </Routes>
-        <Footer />
+        <CartProvider>
+          <NavbarResponsive />
+          <Routes>
+            <Route path="/PIZZERIA" element={<Home />} />
+            <Route path="/PIZZERIA/profile" element={<Profile />} />
+            <Route path="/PIZZERIA/register" element={<RegisterPage />} />
+            <Route path="/PIZZERIA/cart" element={<Cart />} />
+            <Route path="/PIZZERIA/login" element={<LoginPage />} />
+            <Route path="/PIZZERIA/pizza/p001" element={<Pizza />} />
+            <Route path="/PIZZERIA/404" element={<NotFund />} />
+          </Routes>
+          <Footer />
+        </CartProvider>
       </div>
     </>
   );

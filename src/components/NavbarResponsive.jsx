@@ -1,8 +1,10 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
 
 const NavbarResponsive = () => {
-  const total = 25000;
+  const { total, setTotal } = useContext(CartContext);
   const token = false;
   return (
     <div className="navbar navbar-expand-lg navbar-dark bg-dark p-2 px-3">
