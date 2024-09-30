@@ -6,19 +6,6 @@ import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 
 const Home = () => {
-  // const [info, setInfo] = useState([]);
-
-  // useEffect(() => {
-  //   consultarApi();
-  // }, []);
-
-  // const consultarApi = async () => {
-  //   const url = "http://localhost:5000/api/pizzas/";
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   setInfo(data);
-  // };
-
   const { carro } = useContext(CartContext);
 
   return (

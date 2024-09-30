@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useParams } from "react-router-dom";
 
 const Pizza = () => {
   const [info, setInfo] = useState();
@@ -8,14 +9,15 @@ const Pizza = () => {
     consultarApi();
   }, []);
 
+  const { id } = useParams();
+
   const consultarApi = async () => {
-    const url = "http://localhost:5000/api/pizzas/p001/";
+    const url = "http://localhost:5000/api/pizzas/";
     const response = await fetch(url);
     const data = await response.json();
-    setInfo(data);
-    console.log(data);
+    setInfo(data.find((pizza) => pizza.id == id));
   };
-  console.log(info);
+
   return (
     <div>
       {info ? (

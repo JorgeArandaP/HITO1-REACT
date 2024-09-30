@@ -2,10 +2,12 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const CardPizza = ({ name, price, ingredients, img, desc, id }) => {
   const { Agregar, Actualizar, carro } = useContext(CartContext);
   Actualizar(carro);
+  const url = `pizza/${id.toLowerCase()}`;
 
   return (
     <Card className="card">
@@ -34,7 +36,9 @@ const CardPizza = ({ name, price, ingredients, img, desc, id }) => {
         </Card.Text>
         <div className="d-flex justify-content-around">
           <Button variant="outline-dark" size="sl">
-            Ver más 👀
+            <Link className="text-decoration-none text-dark" to={url}>
+              Ver más 👀
+            </Link>
           </Button>
           <Button variant="dark" size="sl" onClick={() => Agregar(id)}>
             Añadir 🛒

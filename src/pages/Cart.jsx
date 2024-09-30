@@ -1,10 +1,13 @@
 import { Button } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { UserContext } from "../contexts/UserContext";
 
 const Cart = () => {
   const { total, carro, Quitar, Agregar, Actualizar } = useContext(CartContext);
   Actualizar(carro);
+  const { user } = useContext(UserContext);
+  const token = user;
 
   return (
     <>
@@ -28,7 +31,7 @@ const Cart = () => {
                   <td className="align-middle">
                     <div className="d-flex justify-content-end ">
                       <Button
-                        className="mx-2"
+                        className="mx-2 btn btn-warning"
                         onClick={() => Agregar(pizza.id)}
                       >
                         Agregar
@@ -36,7 +39,10 @@ const Cart = () => {
                       <p className="mx-2 align-middle">
                         <strong>{pizza.quantity}</strong>
                       </p>
-                      <Button className="mx-2" onClick={() => Quitar(pizza.id)}>
+                      <Button
+                        className="mx-2 btn btn-secondary"
+                        onClick={() => Quitar(pizza.id)}
+                      >
                         Quitar
                       </Button>
                     </div>
@@ -51,6 +57,11 @@ const Cart = () => {
               </tr>
             </tbody>
           </table>
+          <div
+            className={token ? "d-flex justify-content-center mt-3" : "d-none"}
+          >
+            <Button className="fs-5 btn btn-success">Pagar</Button>
+          </div>
         </div>
       </div>
     </>

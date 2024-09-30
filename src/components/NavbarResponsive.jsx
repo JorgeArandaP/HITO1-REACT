@@ -2,10 +2,12 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const NavbarResponsive = () => {
-  const { total, setTotal } = useContext(CartContext);
-  const token = false;
+  const { total } = useContext(CartContext);
+  const { user, Logout } = useContext(UserContext);
+  const token = user;
   return (
     <div className="navbar navbar-expand-lg navbar-dark bg-dark p-2 px-3">
       <div className="container-fluid">
@@ -59,8 +61,12 @@ const NavbarResponsive = () => {
                 type="button"
                 className={token ? "mx-1 my-1" : "d-none"}
                 variant="outline-light"
+                onClick={Logout}
               >
-                <Link to="/" className="text-decoration-none text-white">
+                <Link
+                  to="/PIZZERIA"
+                  className="text-decoration-none text-white"
+                >
                   🔒 Logout
                 </Link>
               </Button>{" "}

@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +24,8 @@ const LoginPage = () => {
     setEmail("");
     setPassword("");
   };
+
+  const { Login } = useContext(UserContext);
 
   return (
     <div className="home d-flex justify-content-end align-items-center homeformulario">
@@ -55,7 +58,12 @@ const LoginPage = () => {
           />
         </Form.Group>
         <div className="mt-4 d-flex justify-content-center">
-          <Button variant="outline-warning" type="submit" className="btn-lg">
+          <Button
+            variant="outline-warning"
+            type="submit"
+            className="btn-lg"
+            onClick={Login}
+          >
             Login
           </Button>
         </div>

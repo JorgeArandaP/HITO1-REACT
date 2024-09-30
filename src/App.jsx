@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import RegisterPage from "./pages/RegisterPage";
@@ -12,7 +12,13 @@ import "./App.css";
 import Footer from "./components/Footer";
 import CartProvider from "./contexts/CartContext";
 
-function App() {
+import { UserContext } from "./contexts/UserContext";
+import { useContext } from "react";
+
+const App = () => {
+  const { user } = useContext(UserContext);
+  console.log(user);
+
   return (
     <>
       <div className="contenedor">
@@ -20,11 +26,24 @@ function App() {
           <NavbarResponsive />
           <Routes>
             <Route path="/PIZZERIA" element={<Home />} />
-            <Route path="/PIZZERIA/profile" element={<Profile />} />
-            <Route path="/PIZZERIA/register" element={<RegisterPage />} />
+            <Route
+              path="/PIZZERIA/profile"
+              element={user ? <Profile /> : <Navigate to="/PIZZERIA/login" />}
+            />
+            <Route
+              path="/PIZZERIA/register"
+              element={
+                user ? <Navigate to="/PIZZERIA/profile" /> : <RegisterPage />
+              }
+            />
             <Route path="/PIZZERIA/cart" element={<Cart />} />
-            <Route path="/PIZZERIA/login" element={<LoginPage />} />
-            <Route path="/PIZZERIA/pizza/p001" element={<Pizza />} />
+            <Route
+              path="/PIZZERIA/login"
+              element={
+                user ? <Navigate to="/PIZZERIA/profile" /> : <LoginPage />
+              }
+            />
+            <Route path="/PIZZERIA/pizza/:id" element={<Pizza />} />
             <Route path="/PIZZERIA/404" element={<NotFund />} />
           </Routes>
           <Footer />
@@ -32,6 +51,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
