@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import RegisterPage from "./pages/RegisterPage";
@@ -28,16 +28,16 @@ const App = () => {
             <Route path="/PIZZERIA" element={<Home />} />
             <Route
               path="/PIZZERIA/profile"
-              element={user ? <Profile /> : <LoginPage />}
+              element={user ? <Profile /> : <Navigate to="/PIZZERIA/login" />}
             />
             <Route
               path="/PIZZERIA/register"
-              element={user ? <Home /> : <RegisterPage />}
+              element={user ? <Navigate to="/PIZZERIA" /> : <RegisterPage />}
             />
             <Route path="/PIZZERIA/cart" element={<Cart />} />
             <Route
               path="/PIZZERIA/login"
-              element={user ? <Home /> : <LoginPage />}
+              element={user ? <Navigate to="/PIZZERIA" /> : <LoginPage />}
             />
             <Route path="/PIZZERIA/pizza/:id" element={<Pizza />} />
             <Route path="/PIZZERIA/404" element={<NotFund />} />
