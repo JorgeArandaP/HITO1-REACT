@@ -18,6 +18,7 @@ const UserProvider = ({ children }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const Logout = () => {
+    localStorage.setItem("token", null);
     setUser(false);
   };
 
@@ -89,8 +90,7 @@ const UserProvider = ({ children }) => {
     const data = await response.json();
     alert(data?.error || "Authentication successful!");
     localStorage.setItem("token", data.token);
-    setPassword("");
-    setEmail("");
+
     setUser(true);
   };
 

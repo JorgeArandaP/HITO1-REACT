@@ -18,7 +18,7 @@ const Cart = () => {
           <table className="table">
             <tbody>
               {carro.map((pizza) => (
-                <tr>
+                <tr key={pizza.id}>
                   <td className="d-flex justify-content-start align-items-center">
                     <img className="imagenCart" src={pizza.img}></img>
                     <div className="mx-3">

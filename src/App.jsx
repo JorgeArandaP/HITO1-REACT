@@ -21,30 +21,26 @@ const App = () => {
   return (
     <>
       <div className="contenedor">
-        <CartProvider>
-          <NavbarResponsive />
-          <Routes>
-            <Route path="/PIZZERIA" element={<Home />} />
-            <Route
-              path="/PIZZERIA/profile"
-              element={user ? <Profile /> : <Navigate to="/PIZZERIA/login" />}
-            />
-            <Route
-              path="/PIZZERIA/register"
-              element={user ? <Navigate to="/PIZZERIA" /> : <RegisterPage />}
-            />
-            <Route path="/PIZZERIA/cart" element={<Cart />} />
-            <Route
-              path="/PIZZERIA/login"
-              element={
-                user ? <Navigate to="/PIZZERIA/profile" /> : <LoginPage />
-              }
-            />
-            <Route path="/PIZZERIA/pizza/:id" element={<Pizza />} />
-            <Route path="/PIZZERIA/404" element={<NotFund />} />
-          </Routes>
-          <Footer />
-        </CartProvider>
+        <NavbarResponsive />
+        <Routes>
+          <Route path="/PIZZERIA" element={<Home />} />
+          <Route
+            path="/PIZZERIA/profile"
+            element={user ? <Profile /> : <Navigate to="/PIZZERIA/login" />}
+          />
+          <Route
+            path="/PIZZERIA/register"
+            element={user ? <Navigate to="/PIZZERIA" /> : <RegisterPage />}
+          />
+          <Route path="/PIZZERIA/cart" element={<Cart />} />
+          <Route
+            path="/PIZZERIA/login"
+            element={user ? <Navigate to="/PIZZERIA/profile" /> : <LoginPage />}
+          />
+          <Route path="/PIZZERIA/pizza/:id" element={<Pizza />} />
+          <Route path="/PIZZERIA/404" element={<NotFund />} />
+        </Routes>
+        <Footer />
       </div>
     </>
   );
