@@ -23,13 +23,13 @@ const CardPizza = ({ name, price, ingredients, img, desc, id }) => {
         <Card.Text className="fs-5 text-center text-secondary">
           Ingredientes:
         </Card.Text>
-        <Card.Text className="fs-6 text-center text-secondary">
-          <ul>
-            {ingredients.map((ingrediente) => (
-              <li>🍕 {ingrediente}</li>
+        <ul>
+          <Card.Text className="fs-6 text-center text-secondary">
+            {ingredients.map((ingrediente, id) => (
+              <li key={id}>🍕 {ingrediente}</li>
             ))}
-          </ul>
-        </Card.Text>
+          </Card.Text>
+        </ul>
         <hr></hr>
         <Card.Text className="fs-4 text-center">
           Precio: ${price.toLocaleString("de-DE")}

@@ -1,40 +1,24 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const RegisterPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const validarInput = (e) => {
-    e.preventDefault();
-
-    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
-      alert("Todos los campos son obligatorios");
-      return;
-    }
-
-    if (password.trim().length < 6) {
-      alert("Password debe contener mas de 6 caracteres");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert("Passwords no coinciden");
-      return;
-    }
-    alert("Registro exitoso!");
-    setEmail("");
-    setConfirmPassword("");
-    setPassword("");
-  };
+  const {
+    Register,
+    email,
+    password,
+    setEmail,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+  } = useContext(UserContext);
 
   return (
     <div className="home d-flex justify-content-end align-items-center homeformulario">
       <Form
         className="w-25 p-4 text-white border  h-auto border-warning rounded-5 formulario"
-        onSubmit={validarInput}
+        onSubmit={Register}
       >
         <h1 className="mb-5 text-center">Register</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -60,7 +44,7 @@ const RegisterPage = () => {
             value={password}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"

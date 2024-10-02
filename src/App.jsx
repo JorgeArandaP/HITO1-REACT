@@ -17,7 +17,6 @@ import { useContext } from "react";
 
 const App = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
 
   return (
     <>
@@ -37,7 +36,9 @@ const App = () => {
             <Route path="/PIZZERIA/cart" element={<Cart />} />
             <Route
               path="/PIZZERIA/login"
-              element={user ? <Navigate to="/PIZZERIA" /> : <LoginPage />}
+              element={
+                user ? <Navigate to="/PIZZERIA/profile" /> : <LoginPage />
+              }
             />
             <Route path="/PIZZERIA/pizza/:id" element={<Pizza />} />
             <Route path="/PIZZERIA/404" element={<NotFund />} />

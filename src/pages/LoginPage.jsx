@@ -4,34 +4,14 @@ import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const validarInput = (e) => {
-    e.preventDefault();
-
-    if (!email.trim() || !password.trim()) {
-      alert("Todos los campos son obligatorios");
-      return;
-    }
-
-    if (password.trim().length < 6) {
-      alert("Password debe contener mas de 6 caracteres");
-      return;
-    }
-
-    alert("Registro exitoso!");
-    setEmail("");
-    setPassword("");
-  };
-
-  const { Login } = useContext(UserContext);
+  const { Login, email, password, setEmail, setPassword } =
+    useContext(UserContext);
 
   return (
     <div className="home d-flex justify-content-end align-items-center homeformulario">
       <Form
         className="w-25 h-auto p-4 text-white border  border-warning rounded-5 formulario"
-        onSubmit={validarInput}
+        onSubmit={Login}
       >
         <h1 className="mb-5 text-center">Login</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -58,12 +38,7 @@ const LoginPage = () => {
           />
         </Form.Group>
         <div className="mt-4 d-flex justify-content-center">
-          <Button
-            variant="outline-warning"
-            type="submit"
-            className="btn-lg"
-            onClick={Login}
-          >
+          <Button variant="outline-warning" type="submit" className="btn-lg">
             Login
           </Button>
         </div>
