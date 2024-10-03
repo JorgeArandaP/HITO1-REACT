@@ -25,6 +25,23 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  const token = localStorage.getItem("token");
+  const Checkout = async (e) => {
+    e.preventDefault();
+    await fetch("http://localhost:5000/api/checkouts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        cart: carro,
+      }),
+    });
+    alert("Compra realizada con exito!");
+    setCarro(pizzas.map((pizza) => ({ ...pizza, quantity: 0 })));
+  };
+
   const Quitar = (pizzaId) => {
     setCarro(
       carro.map((pizza) =>
@@ -44,6 +61,7 @@ const CartProvider = ({ children }) => {
         Agregar,
         Quitar,
         Actualizar,
+        Checkout,
       }}
     >
       {children}

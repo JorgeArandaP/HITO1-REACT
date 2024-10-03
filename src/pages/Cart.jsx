@@ -4,7 +4,8 @@ import { CartContext } from "../contexts/CartContext";
 import { UserContext } from "../contexts/UserContext";
 
 const Cart = () => {
-  const { total, carro, Quitar, Agregar, Actualizar } = useContext(CartContext);
+  const { total, carro, Quitar, Agregar, Actualizar, Checkout } =
+    useContext(CartContext);
   Actualizar(carro);
   const { user } = useContext(UserContext);
   const token = user;
@@ -60,7 +61,9 @@ const Cart = () => {
           <div
             className={token ? "d-flex justify-content-center mt-3" : "d-none"}
           >
-            <Button className="fs-5 btn btn-success">Pagar</Button>
+            <Button className="fs-5 btn btn-success" onClick={Checkout}>
+              Checkout
+            </Button>
           </div>
         </div>
       </div>
