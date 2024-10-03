@@ -90,6 +90,9 @@ const UserProvider = ({ children }) => {
     const data = await response.json();
     alert(data?.error || "Authentication successful!");
     localStorage.setItem("token", data.token);
+    setEmail("");
+
+    setPassword("");
 
     setUser(true);
   };
